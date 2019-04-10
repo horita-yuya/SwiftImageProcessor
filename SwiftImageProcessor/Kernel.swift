@@ -8,6 +8,7 @@ enum Kernel {
     case gaussian_three_dim
     case gaussian_five_dim
     
+    case beauty(sigma: Float, luminanceSigma: Float)
     case bilateral(sigma: Float, luminanceSigma: Float)
     case median
     
@@ -30,6 +31,11 @@ enum Kernel {
         case "gaussian": self = .gaussian(sigma: parameters.first ?? 1)
         case "gaussian_three_dim": self = .gaussian_three_dim
         case "gaussian_five_dim": self = .gaussian_three_dim
+            
+        case "beauty":
+            self = parameters.count == 2
+                ? .beauty(sigma: parameters[0], luminanceSigma: parameters[1])
+                : .beauty(sigma: 1, luminanceSigma: 1)
             
         case "bilateral":
             self = parameters.count == 2
@@ -63,6 +69,7 @@ extension Kernel {
         case .gaussian_five_dim: return "gaussian_five_dim"
             
         case .bilateral: return "bilateral"
+        case .beauty: return "beauty"
             
         case .median: return "median"
         case .derivatives: return "derivatives"
@@ -80,6 +87,7 @@ extension Kernel {
         switch self {
         case .gaussian(let sigma): return [sigma]
         case .bilateral(let sigma, let luminanceSigma): return [sigma, luminanceSigma]
+        case .beauty(let sigma, let luminanceSigma): return [sigma, luminanceSigma]
         case .unknown(_, let parameters): return parameters
             
         // I want to use @unknown attribute in the future.

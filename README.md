@@ -29,3 +29,15 @@ Gaussian
 Bilateral
 
 ![landscape_laplace](Resources/landscape_bilateral.jpg)
+
+# Beauty
+
+Reference: [here](https://www.csie.ntu.edu.tw/~fuh/personal/FaceBeautificationandColorEnhancement.A2-1-0040.pdf)
+
+Input image.
+
+![Original](Resources/act.jpg)
+
+Beauty
+
+![Beauty](Resources/act_beauty.jpg)

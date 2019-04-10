@@ -2,10 +2,6 @@
 #include "utilities.h"
 using namespace metal;
 
-half gauss(half x, half sigma) {
-    return 1 / sqrt(2 * M_PI_H * sigma * sigma) * exp(-x * x / (2 * sigma * sigma));
-};
-
 kernel void gaussian(texture2d<half, access::read> inTexture [[ texture(0) ]],
                      texture2d<half, access::read_write> outTexture [[ texture(1) ]],
                      constant float &sigma [[ buffer(0) ]],
