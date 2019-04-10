@@ -17,8 +17,8 @@ struct CommandLineProcessor {
             
         // case for Xcode Debugging
         case 1:
-            inputFileName = "landscape.jpg"
-            self.kernel = .gray_average
+            inputFileName = "act.jpg"
+            self.kernel = .beauty(sigma: 12.0, luminanceSigma: 0.1)
             sepecifyedOutFile = nil
             
         default:

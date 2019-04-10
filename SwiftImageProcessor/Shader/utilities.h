@@ -8,4 +8,6 @@ constant half3 bt601(0.299, 0.587, 0.114);
 constant half3 luminance_vector(0.2125, 0.7154, 0.0721);
 
 half gauss(half x, half sigma);
+half3 rgb2hsv(half3 col);
+half3 hsv2rgb(half3 col);
 #endif

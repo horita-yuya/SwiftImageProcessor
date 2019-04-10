@@ -29,6 +29,7 @@ kernel void sobel(texture2d<half, access::read> inTexture [[ texture(0) ]],
     half gray_vertical = dot(result_vertical.rgb, bt601);
     
     half magnitude = length(half2(gray_horizontal, gray_vertical));
+    magnitude = abs(1 - magnitude);
     
     outTexture.write(half4(half3(magnitude), 1), gid);
 }
